@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('home');
 })->name('home');
@@ -22,7 +22,6 @@ Route::get('patients', \App\Http\Controllers\PatientsController::class)->name('p
 Route::get('appointments', \App\Http\Controllers\AppointmentsController::class)->name('appointments');
 
 Route::middleware('auth')->group(function () {
-
     Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
     Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
 });
