@@ -8,10 +8,8 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
@@ -19,7 +17,6 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-
             $table->string('doctor_licence_no')->nullable();
             $table->date('doctor_licence_start_date')->nullable();
             $table->date('doctor_licence_end_date')->nullable();
@@ -30,7 +27,6 @@ return new class extends Migration
             $table->text('doctor_biography')->nullable();
             $table->string('doctor_work_days')->nullable();
             $table->string('doctor_work_hours')->nullable();
-
             $table->date('patent_birth_date')->nullable();
             $table->string('patient_declared_address')->nullable();
             $table->string('patient_home_address')->nullable();
@@ -41,7 +37,6 @@ return new class extends Migration
             $table->dateTime('patient_last_visit_time')->nullable();
             $table->string('patient_last_visit_reason')->nullable();
             $table->text('patient_description')->nullable();
-
             $table->rememberToken();
             $table->timestamps();
         });
@@ -49,10 +44,8 @@ return new class extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('users');
     }
